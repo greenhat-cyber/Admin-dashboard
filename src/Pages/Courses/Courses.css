@@ -1,0 +1,50 @@
+.courses-container{
+    width: 100%;
+    height: 100vh;
+
+}
+.addbutton{
+    border: solid 1px orangered;
+    border-radius: 10px;
+    padding: .4rem;
+    color: orangered;
+}
+
+/* Add Course modal css */
+
+.AddCourse-inp{
+    width: 100%;
+    border-radius: 6px;
+    outline: none;
+    border: solid 1px purple;
+}
+
+.AddCourse-inp::placeholder{
+    color: purple;
+    font-size: small;
+    font-weight: 500;
+}
+
+#custom-switch{
+    outline: none;
+}
+
+.addCourse-cancle{
+    width: 15%;
+    border-radius: 50px;
+    height: 2rem;
+    outline: none;
+    border: solid 1px rgba(128, 128, 128, 0.399);
+    background-color: #fff;
+    color: purple;
+}
+.addCourse-save{
+    width: 15%;
+    border-radius: 50px;
+    height: 2rem;
+    outline: none;
+    border:  none;
+    color: purple;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.147);
+}
