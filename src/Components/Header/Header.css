@@ -21,9 +21,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-
-
+    gap: 2rem;
 }
 .logo img{
     width: 200px;
@@ -37,4 +35,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.logout-btn{
+    border-radius: 8px;
+    padding: .3rem;
+    width: 13%;
 }

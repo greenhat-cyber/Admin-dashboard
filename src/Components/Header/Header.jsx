@@ -8,7 +8,10 @@ function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname);
+  const handlelogout = ()=>{
+    localStorage.removeItem("admin-token");
+    navigate("/login")
+  }
 
   return (
     <div className="header">
@@ -22,6 +25,7 @@ function Header() {
         </Col>
 
         <Col className="logo">
+          <button className="logout-btn btn btn-danger" onClick={handlelogout}>Logout</button>
           <img
             src="https://www.luminartechnolab.com/static/media/logo%20vanner%200.1.ad159943.png"
             alt=""
