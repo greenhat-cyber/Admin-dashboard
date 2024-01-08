@@ -1,9 +1,6 @@
 import axios from "axios";
 
 const actionHandler = (payload) => {
-    // axios.defaults.headers.common["Content-Type"] = "application/json";
-    // axios.defaults.headers.common["Accept"] = "application/json";
-    // axios.defaults.headers.common["Cache-Control"] = "no-cache";
   
     const token = localStorage.getItem("admin-token");
     if (token) {
@@ -15,7 +12,6 @@ const actionHandler = (payload) => {
   
       axios(payload)
         .then((response) => {
-          let resp = response.data;
           if (response.status >= 200 && response.status < 300) {
             resolve(response);
           } else {
@@ -33,14 +29,6 @@ const actionHandler = (payload) => {
   
   axios.interceptors.response.use(undefined, function (err) {
     var statusCode = err.status;
-    // console.log("sss",statusCode);
-    // if (statusCode == undefined) {
-          
-    //   var lineSplit = err.toString().split("\n")[0].split("");
-    //   statusCode = lineSplit[lineSplit.length - 1];
-    // }
-  
-    // console.log("intercepter statuscode: ", statusCode);
   
     return new Promise(() => {
       if (statusCode == 401) {
@@ -58,6 +46,12 @@ export default {
 
     /* auth URLs */
     loginURL: "/user/login/", // [POST]
+
+    // courseList URLs
+    courseListURL: "/courses/list/", // [GET]
+    courseAddURL: "/courses/create/", // [GET]
+    courseEditURL: "/courses/update/{id}/", // [GET]
+    courseDeleteURL: "/courses/delete/{id}/", // [DELETE]
 
     actionHandler,
 }

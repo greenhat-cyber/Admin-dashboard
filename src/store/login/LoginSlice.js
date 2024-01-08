@@ -17,6 +17,7 @@ export const loginUser = createAsyncThunk(
       let data = await response;
       if (response.status === 200) {
         localStorage.setItem("admin-token", response.data.data.token.access);
+        localStorage.setItem("user-role", response.data.data.user.user_type);
         return data;
       } else {
         return rejectWithValue(data);
