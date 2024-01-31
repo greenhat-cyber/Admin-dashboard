@@ -14,9 +14,6 @@ function AddCourse(props) {
     courseaddErrorMessage,
   } = useSelector((state) => state.courseAddSlice);
 
-  console.log('====================================');
-  console.log("ms",courseaddErrorMessage);
-  console.log('====================================');
 
   const [full_name, setCourseFullName] = useState("");
   const [title, setCourseTitle] = useState("");
@@ -104,7 +101,7 @@ function AddCourse(props) {
         progress: undefined,
       });
       dispatch(clearCourseAddState());
-      props.handleToggle()
+      props?.handleToggle()
     } else if (courseaddError) {
       toast.error(courseaddErrorMessage, {
         position: "top-right",

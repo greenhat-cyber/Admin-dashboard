@@ -3,6 +3,7 @@ import axios from "axios";
 const actionHandler = (payload) => {
   
     const token = localStorage.getItem("admin-token");
+    
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Bearer " + token;
     }
@@ -50,7 +51,7 @@ export default {
     // courseList URLs
     courseListURL: "/courses/list/", // [GET]
     courseAddURL: "/courses/create/", // [GET]
-    courseEditURL: "/courses/update/{id}/", // [GET]
+    courseEditURL: "/courses/update/{id}/", // [PATCH]
     courseDeleteURL: "/courses/delete/{id}/", // [DELETE]
 
     actionHandler,

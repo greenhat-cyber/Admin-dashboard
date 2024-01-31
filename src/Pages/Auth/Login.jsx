@@ -7,12 +7,15 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Login = () => {
+
   const [phoneNumber, setPhoneNumber] = useState("");
+
   const [password, setPassword] = useState("");
 
   let auth = localStorage.getItem("admin-token");
 
   let navigate = useNavigate();
+  
   const dispatch = useDispatch();
 
   const handlePhoneNumberChange = (e) => {
@@ -77,7 +80,7 @@ const Login = () => {
         </Form.Label>
         <Form.Group className="mb-3" controlId="formGroupphone">
           <Form.Label>Phone Number</Form.Label>
-          <Form.Control type="Number" placeholder="Enter phone number" value={phoneNumber} onChange={handlePhoneNumberChange} />
+          <Form.Control type="number" placeholder="Enter phone number" value={phoneNumber} onChange={handlePhoneNumberChange} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>

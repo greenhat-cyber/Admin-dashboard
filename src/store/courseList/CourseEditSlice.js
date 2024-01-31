@@ -7,7 +7,7 @@ export const fetchcourseEdit = createAsyncThunk(
     try {
       const response = await api.actionHandler({
         url: api.courseEditURL.replace("{id}",courseID),
-        method: "POST",
+        method: "PATCH",
         data : payload,
       });
 

@@ -9,13 +9,15 @@ import { useDispatch } from 'react-redux';
 function Cards(props) {
   
   const [editModalShow, setEditModalShow] = useState(false);
+  const [id, setID] = useState(null);
 
   let userRole = localStorage.getItem("user-role");
 
   const dispatch = useDispatch()
 
-  const handleEditToggle=()=>{
+  const handleEditToggle=(id)=>{
     setEditModalShow(!editModalShow)
+    setID(id)
   }
 
   const handleDelete = (id) => {
@@ -36,7 +38,7 @@ function Cards(props) {
   };
   return (
     <>
-    <EditCourse editModalShow={editModalShow} handleEditToggle={handleEditToggle}/>
+    <EditCourse editModalShow={editModalShow} handleEditToggle={handleEditToggle} id={id} />
     <div className='cards'>
         <span className='m-0 p-0'style={{ color: "rgb(119, 255, 0)" ,fontSize:"25px"}}>{props?.data.title}</span>
         <span className='m-0 p-0'style={{ fontSize:"18px"}} >{props?.data.duration}</span>
@@ -47,13 +49,11 @@ function Cards(props) {
         {
           userRole === "admin" ? 
           <div style={{display:"flex", justifyContent:"flex-end"}}>
-          <button className='btn btn-success' onClick={handleEditToggle}>Edit</button>
+            <button className='btn btn-success' onClick={()=>handleEditToggle(props?.data?.id)}>Edit</button>
         </div> : null
         }
         <button className='btn btn-danger' onClick={()=>handleDelete(props?.data.id)}>Delete</button>
         </div>
-
-
     </div>
     </>
   )

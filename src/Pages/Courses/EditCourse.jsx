@@ -100,6 +100,7 @@ import { Col, Form, Modal, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { clearCourseAddState, fetchcourseAdd } from "../../store/courseList/CourseAddSlice";
+import { fetchcourseEdit } from "../../store/courseList/CourseEditSlice";
 
 function EditCourse(props) {
 
@@ -179,7 +180,9 @@ function EditCourse(props) {
         draggable: true,
         progress: undefined,
       });
-    } 
+    } else {
+      dispatch(fetchcourseEdit({ payload, courseID : props.id }));
+    }
   }
 
   useEffect(() => {
